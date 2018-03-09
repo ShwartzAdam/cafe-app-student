@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Order Ticket</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <div ion-col>
+        <h3>Order Details
+          <span> 1234</span>
+        </h3>
+
+      </div>
+    </ion-row>
+    <ion-row>
+      <div ion-col>
+        <ion-label> To:
+          <span> Adam</span>
+        </ion-label>
+      </div>
+    </ion-row>
+    <ion-row>
+      <div ion-col>
+        <ion-label>Phone:
+          <span> 0542038123</span>
+        </ion-label>
+      </div>
+    </ion-row>
+    <ion-row>
+      <div ion-col>
+        <ion-label>Pick Up Time:
+          <span> {{this.myDate}}</span>
+        </ion-label>
+      </div>
+    </ion-row>
+    <ion-row>
+      <div ion-col>
+        <ion-label>Order Summary:
+        </ion-label>
+      </div>
+    </ion-row>
+    <ion-row>
+      <div ion-col>
+        <p>X{{this.qCross}} Crooisant {{this.crooisant}}</p>
+      </div>
+    </ion-row>
+    <ion-row>
+      <div ion-col>
+        <p>X{{this.qDrink}} {{this.drink}}</p>
+      </div>
+    </ion-row>
+    <ion-row>
+      <div ion-col>
+        <ion-label>Total:
+          <span>10.50 NIS</span>
+        </ion-label>
+      </div>
+    </ion-row>
+
+
+  </ion-grid>
+</ion-content>
+<ion-footer no-shadow>
+  <ion-toolbar position="bottom">
+    <button ion-button round float-left (click)="deleOrder">Cancel</button>
+    <button ion-button round float-right (click)="confOrder()">Place Order</button>
+  </ion-toolbar>
+</ion-footer>

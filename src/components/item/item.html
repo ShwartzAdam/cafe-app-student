@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{this.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+ <ion-grid>
+   <ion-row>
+     <ion-col>
+     </ion-col>
+     <ion-col>
+       <ion-img width="200" height="200" src="{{this.url}}"></ion-img>
+     </ion-col>
+     <ion-col>
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col></ion-col>
+     <ion-col>
+       <ion-card-header> {{this.title}}</ion-card-header>
+     </ion-col>
+     <ion-col></ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-card-title>Description :</ion-card-title>
+     <ion-card-content>{{this.desc}}</ion-card-content>
+   </ion-row>
+   <ion-row>
+     <ion-col>
+       <ion-card-title>Time Preparation:</ion-card-title>
+     </ion-col>
+     <ion-col></ion-col>
+     <ion-col>
+       <ion-card-content>10 Minutes</ion-card-content>
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col>
+       <ion-card-title>Price :</ion-card-title>
+     </ion-col>
+     <ion-col></ion-col>
+     <ion-col>
+      <ion-card-content>{{this.price}}</ion-card-content>
+     </ion-col>
+   </ion-row>
+   <ion-row *ngIf="displayButton">
+     <ion-col></ion-col>
+     <ion-col>
+       <button ion-button round (click)="showUIform()">Order Now</button>
+     </ion-col>
+     <ion-col></ion-col>
+   </ion-row>
+   <ion-row *ngIf="displayReviews">
+     <ion-col></ion-col>
+     <ion-col>
+       <ion-card-header> Reviews</ion-card-header>
+     </ion-col>
+     <ion-col></ion-col>
+   </ion-row>
+   <ion-list *ngIf="displayReviews">
+     <ion-row *ngFor="let review of reviews">
+         <ion-col>
+           <h6 ion-text color="primary">{{review.name}} ,</h6>
+         </ion-col>
+         <ion-col>
+           <ion-title>{{review.location}}</ion-title>
+         </ion-col>
+         <ion-col>
+           <ion-title>{{review.stars}} Stars</ion-title>
+         </ion-col>
+         <ion-card-content>{{review.content}}</ion-card-content>
+     </ion-row>
+   </ion-list>
+   <ion-row *ngIf="displayTime">
+     <ion-col col-1></ion-col>
+     <ion-col col-10>
+       <ion-item>
+         <ion-label>Quantity : </ion-label>
+         <ion-input type="text" value="" [(ngModel)]="qItem"></ion-input>
+       </ion-item>
+     </ion-col>
+     <ion-col col-2></ion-col>
+   </ion-row>
+   <ion-row *ngIf="displayTime">
+     <ion-col col-1></ion-col>
+     <ion-col col-10>
+       <ion-item>
+         <ion-label>PickUp Time :</ion-label>
+         <ion-datetime displayFormat="HH:mm:ss" [(ngModel)]="date"></ion-datetime>
+       </ion-item>
+     </ion-col>
+     <ion-col col-2></ion-col>
+   </ion-row>
+   <ion-row *ngIf="displayTime" class="buttonTime">
+     <ion-col>
+     </ion-col>
+     <ion-col>
+       <button ion-button round>Check Time</button>
+     </ion-col>
+     <ion-col>
+     </ion-col>
+   </ion-row>
+
+ </ion-grid>
+</ion-content>
+<ion-footer no-shadow [hidden]="displayBottomNav">
+  <ion-toolbar position="bottom">
+    <button ion-button round float-left (click)="clearOrder">Clear</button>
+    <button ion-button round float-right (click)="initOrder()">Submit</button>
+  </ion-toolbar>
+</ion-footer>
+

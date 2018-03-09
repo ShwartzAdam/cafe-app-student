@@ -1,0 +1,40 @@
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Track Order</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div padding>
+    <button ion-button (click)="mode = 'horizontal'">horizontal</button>
+    <button ion-button (click)="mode = 'vertical'">vertical</button>
+    <button ion-button (click)="stepper.setStep(0)">select first</button>
+  </div>
+
+  <ion-stepper #stepper [(selectedIndex)]="selectedIndex" [mode]="mode" (selectIndexChange)="selectChange($event)">
+    <ion-step label="Step1"
+              description="Order Placed">
+      <h2>Step1 - Order Placed</h2>
+      <p>We have received your order</p>
+    </ion-step>
+    <ion-step label="Step2"
+              description="Order Confirmed">
+      <h2>Step2 - Order Confirmed</h2>
+      <p>Your order has been confirmed</p>
+    </ion-step>
+    <ion-step label="Step3"
+              description="Order Processed">
+      <h2>Step3 - Order Processed</h2>
+      <p>We are preparing your order</p>
+    </ion-step>
+    <ion-step label="Step4"
+              description="Ready to Pickup">
+      <h2>Step4 - Ready to Pickup</h2>
+      <p>Your order is ready for pickup</p>
+    </ion-step>
+  </ion-stepper>
+</ion-content>
+
